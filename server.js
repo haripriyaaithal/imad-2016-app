@@ -5,7 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
+var articles = {
+ articleOne = {
     title : 'Article One | Haripriya Aithal',
     heading : 'Article One',
     date : 'Sept. 21, 2016',
@@ -21,6 +22,41 @@ var articleOne = {
                 Content goes here....! This page contains the contents of article one...!!!<br>
                 Content goes here....! This page contains the contents of article one...!!!
             </p>`
+},
+ articleTwo = {
+    title : 'Article Two | Haripriya Aithal',
+    heading : 'Article Two',
+    date : 'Sept. 22, 2016',
+    content : ` <p>
+                Content goes here....! This page contains the contents of article two...!!!<br>
+                Content goes here....! This page contains the contents of article two...!!!
+            </p>
+            <p>
+                Content goes here....! This page contains the contents of article two...!!!<br>
+                Content goes here....! This page contains the contents of article two...!!!
+            </p>
+            <p>
+                Content goes here....! This page contains the contents of article two...!!!<br>
+                Content goes here....! This page contains the contents of article two...!!!
+            </p>`
+},
+ articleThree = {
+    title : 'Article Three | Haripriya Aithal',
+    heading : 'Article Three',
+    date : 'Sept. 21, 2016',
+    content : ` <p>
+                Content goes here....! This page contains the contents of article three...!!!<br>
+                Content goes here....! This page contains the contents of article three...!!!
+            </p>
+            <p>
+                Content goes here....! This page contains the contents of article three...!!!<br>
+                Content goes here....! This page contains the contents of article three...!!!
+            </p>
+            <p>
+                Content goes here....! This page contains the contents of article three...!!!<br>
+                Content goes here....! This page contains the contents of article three...!!!
+            </p>`
+}
 };
 
 function createTemplate(data){
@@ -70,11 +106,11 @@ app.get('/article-one', function(req,res){
 });
 
 app.get('/article-two', function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+  res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three', function(req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+  res.send(createTemplate(articleThree));
 });
 
 app.get('/article-two', function(req,res){
